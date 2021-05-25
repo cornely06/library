@@ -19,15 +19,25 @@ function addBook() {
     console.log(myLibrary);
 }
 
+function deleteBook() {
+    myLibrary.splice(this.dataset.index, 1);
+    showLibrary();
+}
+
 function showLibrary() {
     let library = document.querySelector('#library');
     while(library.firstChild) {
         library.removeChild(library.firstChild);
     }
-    myLibrary.forEach(book => {
+    myLibrary.forEach((book, index) => {
         let listItem = document.createElement('LI');
         let textNode = document.createTextNode(`${book.title} by ${book.author} ${isRead(book.isRead)}`);
         listItem.appendChild(textNode);
+        let remove = document.createElement('BUTTON');
+        remove.innerHTML = "&times;";
+        remove.dataset.index = index;
+        remove.addEventListener('click', deleteBook);
+        listItem.appendChild(remove);
         library.appendChild(listItem);
     })
 }
@@ -41,11 +51,3 @@ newBook.addEventListener('click', addBook);
 
 const displayLibrary = document.querySelector('#show-library');
 displayLibrary.addEventListener('click', showLibrary);
-
-
-/*
-let diary = new Book("Diary", "Chuck Palanhiuk", true)
-addBookToLibrary(diary);
-console.log(diary);
-console.log(myLibrary);
-*/
