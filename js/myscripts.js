@@ -15,6 +15,10 @@ function addBookToLibrary(book) {
 function addBook(e) {
     e.preventDefault();
     let title = document.querySelector('#title').value;
+    if (myLibrary.some(book => book.title == title)) {
+        alert("That book already exists in the library.");
+        return false;
+    }
     let author = document.querySelector('#author').value;
     let pages = document.querySelector('#pages').value;
     let year = document.querySelector('#year').value;
