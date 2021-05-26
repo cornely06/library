@@ -18,18 +18,26 @@
     padding: 20px;
     border: 1px solid #888;
     width: 40%;
-  }
+}
   
-  .close {
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
+
+label {
+    display: flex;
+}
+
+.input-radio {
+    display: inline-block;
+}
