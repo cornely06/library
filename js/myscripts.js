@@ -70,9 +70,7 @@ function isRead(check) {
 
 const form = document.querySelector('#new-book-form');
 form.addEventListener('submit', addBook);
-
-const displayLibrary = document.querySelector('#show-library');
-displayLibrary.addEventListener('click', showLibrary);
+form.addEventListener('submit', showLibrary);
 
 let modal = document.querySelector('.modal')
 let closeBtn = document.querySelector('.modal .modal-content .close');
