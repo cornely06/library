@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -18,6 +26,10 @@
     padding: 20px;
     border: 1px solid #888;
     width: 40%;
+}
+
+.form-group input[type="text"] {
+   width: 100%;
 }
   
 .close {
@@ -42,9 +54,35 @@ label {
     display: inline-block;
 }
 
+#library-title {
+    background-color: grey;
+    text-align: center;
+    font-size: 4em;
+    padding: 0.5em;
+}
+
+#buttons-bar {
+    border-top: 1px solid black;
+    display: flex;
+}
+
+#buttons-bar button {
+    flex: 1;
+    border-radius: 0;
+    border: 1px solid black;
+    font-size: 2em;
+    padding: 0.3em;
+}
+
+#buttons-bar button:hover {
+    background-color: red;
+}
+
 #library-container {
     display: flex;
     flex-wrap: wrap-reverse;
+    border-top: 1px solid black;
+    overflow: auto;
 }
 
 .book-container {
