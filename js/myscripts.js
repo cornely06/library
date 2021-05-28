@@ -52,7 +52,7 @@ function deleteBook() {
 
 function showLibrary() {
     let library = document.querySelector('#library-container');
-    while(library.firstChild) {
+    while (library.firstChild) {
         library.removeChild(library.firstChild);
     }
     myLibrary.forEach((book, index) => {
@@ -84,9 +84,84 @@ function showLibrary() {
     })
 }
 
-function isRead(check) {
-    return check ? 'has been read' : 'not read yet'
+function showRead() {
+    let library = document.querySelector('#library-container');
+    while (library.firstChild) {
+        library.removeChild(library.firstChild);
+    }
+    myLibrary.filter(book => (book.isRead == "true"))
+             .forEach((book, index) => {
+        let bookContainer = document.createElement('div');
+        bookContainer.classList.add('book-container');
+        let title = document.createElement('div');
+        title.classList.add('title-container');
+        title.textContent = `${book.title}`;
+        let author = document.createElement('div');
+        author.classList.add('author-container');
+        author.textContent = `${book.author}`;
+        let year = document.createElement('div');
+        year.classList.add('year-container');
+        year.textContent = `${book.year}`;
+        let pages = document.createElement('div');
+        pages.classList.add('pages-container');
+        pages.textContent = `${book.pages}`;
+        let removeBtn = document.createElement('span');
+        removeBtn.classList.add('close');
+        removeBtn.innerHTML = "&times;";
+        removeBtn.dataset.index = index;
+        removeBtn.addEventListener('mousedown', deleteBook);
+        bookContainer.appendChild(removeBtn);
+        bookContainer.appendChild(title);
+        bookContainer.appendChild(author);
+        bookContainer.appendChild(year);
+        bookContainer.appendChild(pages);
+        library.appendChild(bookContainer);
+    })
 }
+
+function showUnread() {
+    let library = document.querySelector('#library-container');
+    while (library.firstChild) {
+        library.removeChild(library.firstChild);
+    }
+    myLibrary.filter(book => (book.isRead == "false"))
+             .forEach((book, index) => {
+        let bookContainer = document.createElement('div');
+        bookContainer.classList.add('book-container');
+        let title = document.createElement('div');
+        title.classList.add('title-container');
+        title.textContent = `${book.title}`;
+        let author = document.createElement('div');
+        author.classList.add('author-container');
+        author.textContent = `${book.author}`;
+        let year = document.createElement('div');
+        year.classList.add('year-container');
+        year.textContent = `${book.year}`;
+        let pages = document.createElement('div');
+        pages.classList.add('pages-container');
+        pages.textContent = `${book.pages}`;
+        let removeBtn = document.createElement('span');
+        removeBtn.classList.add('close');
+        removeBtn.innerHTML = "&times;";
+        removeBtn.dataset.index = index;
+        removeBtn.addEventListener('mousedown', deleteBook);
+        bookContainer.appendChild(removeBtn);
+        bookContainer.appendChild(title);
+        bookContainer.appendChild(author);
+        bookContainer.appendChild(year);
+        bookContainer.appendChild(pages);
+        library.appendChild(bookContainer);
+    })
+}
+
+let readBtn = document.querySelector('#read-book-btn');
+readBtn.addEventListener('mousedown', showRead);
+
+let unreadBtn = document.querySelector('#unread-book-btn');
+unreadBtn.addEventListener('mousedown', showUnread);
+
+let showAllBtn = document.querySelector('#show-all-book-btn');
+showAllBtn.addEventListener('mousedown', showLibrary);
 
 const form = document.querySelector('#new-book-form');
 form.addEventListener('submit', addBook);

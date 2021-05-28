@@ -42,8 +42,13 @@ label {
     display: inline-block;
 }
 
-.book-container {
+#library-container {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
 
+.book-container {
+    width: 200px;
 }
 
 .title-container {
