@@ -10,6 +10,7 @@
             <button id="show-all-book-btn" type="button">Show All Books</button>
             <button id="read-book-btn" type="button">Show Read Books</button>
             <button id="unread-book-btn" type="button">Show Unread Books</button>
+            <button id="delete-library-btn" type="button">Delete Library</button>
         </div>
         <div class="modal" id="myModal">
             <div class="modal-content">
@@ -42,6 +43,13 @@
                     </div>
                     <input type="submit" value="Add Book">
                 </form>
+            </div>
+        </div>
+        <div class="deleteModal">
+            <div class="modal-content">
+                <p>Are you sure you want to delete the library?</p>
+                <button id="confirm">Confirm</button>
+                <button id="cancel">Cancel</button>
             </div>
         </div>
         <div id="library-container"></div>

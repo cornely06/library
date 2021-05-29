@@ -154,6 +154,30 @@ function showUnread() {
     })
 }
 
+function deleteLibrary() {
+    let library = document.querySelector('#library-container');
+    while (library.firstChild) {
+        library.removeChild(library.firstChild);
+    }
+    deleteModal.style.display = 'none';
+}
+
+let deleteModal = document.querySelector('.deleteModal')
+
+function askConfirmDelete() {
+    deleteModal.style.display = 'block';
+}
+
+function cancelDelete() {
+    deleteModal.style.display = 'none';
+}
+
+let confirm = document.querySelector('#confirm');
+confirm.addEventListener('mousedown', deleteLibrary);
+
+let cancel = document.querySelector('#cancel');
+cancel.addEventListener('mousedown', cancelDelete)
+
 let readBtn = document.querySelector('#read-book-btn');
 readBtn.addEventListener('mousedown', showRead);
 
@@ -162,6 +186,9 @@ unreadBtn.addEventListener('mousedown', showUnread);
 
 let showAllBtn = document.querySelector('#show-all-book-btn');
 showAllBtn.addEventListener('mousedown', showLibrary);
+
+let deleteBtn = document.querySelector('#delete-library-btn');
+deleteBtn.addEventListener('mousedown', askConfirmDelete);
 
 const form = document.querySelector('#new-book-form');
 form.addEventListener('submit', addBook);
