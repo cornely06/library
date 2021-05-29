@@ -66,10 +66,10 @@ function showLibrary() {
         author.textContent = `${book.author}`;
         let year = document.createElement('div');
         year.classList.add('year-container');
-        year.textContent = `${book.year}`;
+        year.textContent = `Released ${book.year}`;
         let pages = document.createElement('div');
         pages.classList.add('pages-container');
-        pages.textContent = `${book.pages}`;
+        pages.textContent = `${book.pages} pages`;
         let removeBtn = document.createElement('span');
         removeBtn.classList.add('close');
         removeBtn.innerHTML = "&times;";
@@ -101,10 +101,10 @@ function showRead() {
         author.textContent = `${book.author}`;
         let year = document.createElement('div');
         year.classList.add('year-container');
-        year.textContent = `${book.year}`;
+        year.textContent = `Released ${book.year}`;
         let pages = document.createElement('div');
         pages.classList.add('pages-container');
-        pages.textContent = `${book.pages}`;
+        pages.textContent = `${book.pages} pages`;
         let removeBtn = document.createElement('span');
         removeBtn.classList.add('close');
         removeBtn.innerHTML = "&times;";
@@ -136,10 +136,10 @@ function showUnread() {
         author.textContent = `${book.author}`;
         let year = document.createElement('div');
         year.classList.add('year-container');
-        year.textContent = `${book.year}`;
+        year.textContent = `Released ${book.year}`;
         let pages = document.createElement('div');
         pages.classList.add('pages-container');
-        pages.textContent = `${book.pages}`;
+        pages.textContent = `${book.pages} pages`;
         let removeBtn = document.createElement('span');
         removeBtn.classList.add('close');
         removeBtn.innerHTML = "&times;";

@@ -92,29 +92,27 @@ label {
     background-color: red;
 }
 
+button:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #library-container {
     display: flex;
     flex-wrap: wrap-reverse;
     border-top: 1px solid black;
     overflow: auto;
+    text-align: center;
+    justify-content: center;
 }
 
 .book-container {
-    width: 200px;
+    overflow-wrap: break-word;
+    width: 30%;
+    font-size: 1.5em;
+    background-color: red;
 }
 
-.title-container {
-
-}
-
-.author-container {
-
-}
-
-.year-container {
-
-}
-
-.pages-container {
-
+.book-container > * {
+    padding: 10px 10px 0px 10px;
 }
