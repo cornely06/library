@@ -70,16 +70,29 @@ function showLibrary() {
         let pages = document.createElement('div');
         pages.classList.add('pages-container');
         pages.textContent = `${book.pages} pages`;
-        let removeBtn = document.createElement('span');
-        removeBtn.classList.add('close');
-        removeBtn.innerHTML = "&times;";
+        let readStatus = document.createElement('button');
+        readStatus.innerHTML = book.isRead;
+        readStatus.addEventListener('mousedown',() => {
+            if (book.isRead == "Read") {
+                readStatus.innerHTML = "Not Read";
+                book.isRead = "Not Read";
+            }
+            else {
+                readStatus.innerHTML = "Read";
+                book.isRead = "Read";
+            }
+            showLibrary();
+        });
+        let removeBtn = document.createElement('button');
+        removeBtn.innerHTML = "Remove";
         removeBtn.dataset.index = index;
         removeBtn.addEventListener('mousedown', deleteBook);
-        bookContainer.appendChild(removeBtn);
         bookContainer.appendChild(title);
         bookContainer.appendChild(author);
         bookContainer.appendChild(year);
         bookContainer.appendChild(pages);
+        bookContainer.appendChild(readStatus);
+        bookContainer.appendChild(removeBtn);
         library.appendChild(bookContainer);
     })
 }
@@ -89,7 +102,7 @@ function showRead() {
     while (library.firstChild) {
         library.removeChild(library.firstChild);
     }
-    myLibrary.filter(book => (book.isRead == "true"))
+    myLibrary.filter(book => (book.isRead == "Read"))
              .forEach((book, index) => {
         let bookContainer = document.createElement('div');
         bookContainer.classList.add('book-container');
@@ -105,16 +118,29 @@ function showRead() {
         let pages = document.createElement('div');
         pages.classList.add('pages-container');
         pages.textContent = `${book.pages} pages`;
-        let removeBtn = document.createElement('span');
-        removeBtn.classList.add('close');
-        removeBtn.innerHTML = "&times;";
+        let readStatus = document.createElement('button');
+        readStatus.innerHTML = book.isRead;
+        readStatus.addEventListener('mousedown',() => {
+            if (book.isRead == "Read") {
+                readStatus.innerHTML = "Not Read";
+                book.isRead = "Not Read";
+            }
+            else {
+                readStatus.innerHTML = "Read";
+                book.isRead = "Read";
+            }
+            showRead();
+        });
+        let removeBtn = document.createElement('button');
+        removeBtn.innerHTML = "Remove";
         removeBtn.dataset.index = index;
         removeBtn.addEventListener('mousedown', deleteBook);
-        bookContainer.appendChild(removeBtn);
         bookContainer.appendChild(title);
         bookContainer.appendChild(author);
         bookContainer.appendChild(year);
         bookContainer.appendChild(pages);
+        bookContainer.appendChild(readStatus);
+        bookContainer.appendChild(removeBtn);
         library.appendChild(bookContainer);
     })
 }
@@ -124,7 +150,7 @@ function showUnread() {
     while (library.firstChild) {
         library.removeChild(library.firstChild);
     }
-    myLibrary.filter(book => (book.isRead == "false"))
+    myLibrary.filter(book => (book.isRead == "Not Read"))
              .forEach((book, index) => {
         let bookContainer = document.createElement('div');
         bookContainer.classList.add('book-container');
@@ -140,16 +166,29 @@ function showUnread() {
         let pages = document.createElement('div');
         pages.classList.add('pages-container');
         pages.textContent = `${book.pages} pages`;
-        let removeBtn = document.createElement('span');
-        removeBtn.classList.add('close');
-        removeBtn.innerHTML = "&times;";
+        let readStatus = document.createElement('button');
+        readStatus.innerHTML = book.isRead;
+        readStatus.addEventListener('mousedown',() => {
+            if (book.isRead == "Read") {
+                readStatus.innerHTML = "Not Read";
+                book.isRead = "Not Read";
+            }
+            else {
+                readStatus.innerHTML = "Read";
+                book.isRead = "Read";
+            }
+            showUnread();
+        });
+        let removeBtn = document.createElement('button');
+        removeBtn.innerHTML = "Remove";
         removeBtn.dataset.index = index;
         removeBtn.addEventListener('mousedown', deleteBook);
-        bookContainer.appendChild(removeBtn);
         bookContainer.appendChild(title);
         bookContainer.appendChild(author);
         bookContainer.appendChild(year);
         bookContainer.appendChild(pages);
+        bookContainer.appendChild(readStatus);
+        bookContainer.appendChild(removeBtn);
         library.appendChild(bookContainer);
     })
 }
