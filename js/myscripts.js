@@ -74,6 +74,7 @@ function showLibrary() {
         pages.textContent = `${book.pages} pages`;
         let readStatus = document.createElement('button');
         readStatus.innerHTML = book.isRead;
+        readStatus.classList.add('book-buttons')
         readStatus.addEventListener('mousedown',() => {
             if (book.isRead == "Read") {
                 readStatus.innerHTML = "Not Read";
@@ -89,6 +90,7 @@ function showLibrary() {
         });
         let removeBtn = document.createElement('button');
         removeBtn.innerHTML = "Remove";
+        removeBtn.classList.add('book-buttons')
         removeBtn.dataset.index = index;
         removeBtn.addEventListener('mousedown', deleteBook);
         bookContainer.appendChild(title);
@@ -124,6 +126,7 @@ function showRead() {
         pages.textContent = `${book.pages} pages`;
         let readStatus = document.createElement('button');
         readStatus.innerHTML = book.isRead;
+        readStatus.classList.add('book-buttons')
         readStatus.addEventListener('mousedown',() => {
             if (book.isRead == "Read") {
                 readStatus.innerHTML = "Not Read";
@@ -139,6 +142,7 @@ function showRead() {
         });
         let removeBtn = document.createElement('button');
         removeBtn.innerHTML = "Remove";
+        removeBtn.classList.add('book-buttons')
         removeBtn.dataset.index = index;
         removeBtn.addEventListener('mousedown', deleteBook);
         bookContainer.appendChild(title);
@@ -174,6 +178,7 @@ function showUnread() {
         pages.textContent = `${book.pages} pages`;
         let readStatus = document.createElement('button');
         readStatus.innerHTML = book.isRead;
+        readStatus.classList.add('book-buttons')
         readStatus.addEventListener('mousedown',() => {
             if (book.isRead == "Read") {
                 readStatus.innerHTML = "Not Read";
@@ -190,6 +195,7 @@ function showUnread() {
         let removeBtn = document.createElement('button');
         removeBtn.innerHTML = "Remove";
         removeBtn.dataset.index = index;
+        removeBtn.classList.add('book-buttons')
         removeBtn.addEventListener('mousedown', deleteBook);
         bookContainer.appendChild(title);
         bookContainer.appendChild(author);
