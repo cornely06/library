@@ -227,6 +227,12 @@ function cancelDelete() {
     deleteModal.style.display = 'none';
 }
 
+window.addEventListener('mousedown', function(e) {
+    if (e.target == deleteModal) {
+        deleteModal.style.display = 'none';
+    }
+})
+
 let confirm = document.querySelector('#confirm');
 confirm.addEventListener('mousedown', deleteLibrary);
 
