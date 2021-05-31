@@ -23,9 +23,12 @@
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
     border: 1px solid #888;
     width: 40%;
+}
+
+#new-book-form {
+    padding: 20px;
 }
 
 .deleteModal {
@@ -45,10 +48,14 @@
 .form-group input[type="text"] {
     width: 100%;
 }
+
+#close-button {
+    text-align: right;
+    padding: 10px 10px 0px 0px;
+}
   
 .close {
     color: #aaaaaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
 }
