@@ -33,6 +33,7 @@ function addBook(e) {
     let book = new Book(title, author, year, pages, isRead);
     addBookToLibrary(book);
     console.log(myLibrary);
+    saveLocal()
     resetFields();
     return false;
 }
@@ -47,6 +48,7 @@ function resetFields() {
 
 function deleteBook() {
     myLibrary.splice(this.dataset.index, 1);
+    saveLocal()
     showLibrary();
 }
 
@@ -76,10 +78,12 @@ function showLibrary() {
             if (book.isRead == "Read") {
                 readStatus.innerHTML = "Not Read";
                 book.isRead = "Not Read";
+                saveLocal()
             }
             else {
                 readStatus.innerHTML = "Read";
                 book.isRead = "Read";
+                saveLocal()
             }
             showLibrary();
         });
@@ -124,10 +128,12 @@ function showRead() {
             if (book.isRead == "Read") {
                 readStatus.innerHTML = "Not Read";
                 book.isRead = "Not Read";
+                saveLocal()
             }
             else {
                 readStatus.innerHTML = "Read";
                 book.isRead = "Read";
+                saveLocal()
             }
             showRead();
         });
@@ -172,10 +178,12 @@ function showUnread() {
             if (book.isRead == "Read") {
                 readStatus.innerHTML = "Not Read";
                 book.isRead = "Not Read";
+                saveLocal()
             }
             else {
                 readStatus.innerHTML = "Read";
                 book.isRead = "Read";
+                saveLocal()
             }
             showUnread();
         });
@@ -199,6 +207,7 @@ function deleteLibrary() {
         library.removeChild(library.firstChild);
     }
     deleteModal.style.display = 'none';
+    saveLocal()
 }
 
 let deleteModal = document.querySelector('.deleteModal')
@@ -253,3 +262,15 @@ window.addEventListener('mousedown', function(e) {
         modal.style.display = 'none';
     }
 })
+
+function saveLocal() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  }
+  
+  function restoreLocal() {
+    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    if (myLibrary === null) myLibrary = [];
+    showLibrary();
+  }
+  
+  restoreLocal();
