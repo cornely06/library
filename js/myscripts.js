@@ -213,7 +213,8 @@ function deleteLibrary() {
         library.removeChild(library.firstChild);
     }
     deleteModal.style.display = 'none';
-    saveLocal()
+    myLibrary = [];
+    saveLocal();
 }
 
 let deleteModal = document.querySelector('.deleteModal')
