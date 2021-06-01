@@ -6,6 +6,12 @@
   margin: 0;
 }
 
+body {
+    color: rgb(59, 32, 59);
+    background-color: rgb(91, 186, 218);
+    text-shadow: 2px 2px white;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -21,10 +27,11 @@
   }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgb(229, 230, 172);
     margin: auto;
     border: 1px solid #888;
     width: 40%;
+    font-size: 1.5em;
 }
 
 #new-book-form {
@@ -73,10 +80,12 @@ label {
 
 .input-radio {
     display: inline-block;
+    min-height: 1.5rem;
+    min-width: 1.5rem;
+    margin-right: 0.625rem;
 }
 
 #library-title {
-    background-color: grey;
     text-align: center;
     font-size: 2.5em;
     padding: 0.5em;
@@ -91,17 +100,19 @@ label {
     flex: 1;
     border-radius: 0;
     border: 1px solid black;
-    font-size: 2em;
+    font-size: 1.5em;
     padding: 0.3em;
 }
 
-#buttons-bar button:hover {
-    background-color: red;
+button {
+    background-color: rgb(211, 98, 98);
+    text-shadow: 1px 1px grey;
 }
 
 button:hover {
     text-decoration: none;
     cursor: pointer;
+    background-color: rgb(163, 46, 46);
 }
 
 #library-container {
@@ -116,7 +127,7 @@ button:hover {
     overflow-wrap: break-word;
     width: 47.5%;
     font-size: 1.5em;
-    background-color: red;
+    background-color: rgb(229, 230, 172);
     margin: 10px;
     padding: 20px;
 }
@@ -128,11 +139,11 @@ button:hover {
 .book-buttons {
     width: 8em;
     margin: 10px;
-    background-color: blueviolet;
+    font-size: 0.8em;
+    border: none;
 }
 
-.book-buttons:hover {
-    background-color: blueviolet;
-    border-color: greenyellow;
-    color: greenyellow;
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
 }
