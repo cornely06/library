@@ -4,6 +4,56 @@
         <link href="css/style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <div id="library-title"><h1>My Library</h1></div>
+        <div id="buttons-bar">
+            <button id="new-book-btn" type="button">New Book</button>
+            <button id="show-all-book-btn" type="button">Show All Books</button>
+            <button id="read-book-btn" type="button">Show Read Books</button>
+            <button id="unread-book-btn" type="button">Show Unread Books</button>
+            <button id="delete-library-btn" type="button">Delete Library</button>
+        </div>
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <div id="close-button">
+                    <span class="close">&times;</span>
+                </div>
+                <form id="new-book-form">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" maxlength="25" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" maxlength="25" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year:</label>
+                        <input type="text" id="year" name="year" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pages">Pages:</label>
+                        <input type="text" id="pages" name="pages" required>
+                    </div>
+                    <div class="form-group" id="form-radio">
+                        <label>
+                        <input class="input-radio" type="radio" id="unread" name="is-read" value="Not Read" checked>
+                        Not Read Yet</label>
+                        <label>
+                        <input class="input-radio" type="radio" id="read" name="is-read" value="Read">
+                        Read</label>
+                    </div>
+                    <input type="submit" value="Add Book">
+                </form>
+            </div>
+        </div>
+        <div class="deleteModal">
+            <div class="modal-content">
+                <p>Are you sure you want to delete the library?</p>
+                <button id="confirm">Confirm</button>
+                <button id="cancel">Cancel</button>
+            </div>
+        </div>
+        <div id="library-container"></div>
         <script src="js/myscripts.js"></script>      
     </body>
 </html>
