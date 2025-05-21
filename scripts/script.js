@@ -38,6 +38,7 @@ let container = document.querySelector(".library");
 myLibrary.forEach((book) => {
   let card = document.createElement("div");
   card.classList.add("book-card");
+  card.id = book.id;
   makeCard(book, card);
   container.appendChild(card);
 });
@@ -57,6 +58,7 @@ function makeCard(book, card) {
   closeButton(card);
 }
 
+// Add switch for has read to go between has and not
 function hasRead(book, card) {
   let div1 = document.createElement("div");
   let checkbox = document.createElement("input");
@@ -78,9 +80,15 @@ function closeButton(card) {
   let button = document.createElement("button");
   button.innerHTML = "&#215";
   button.classList.add("close-card");
+  button.addEventListener("click", function () {
+    let cardId = this.parentNode.id;
+    let removeIndex = myLibrary.findIndex((book) => book.id == cardId);
+    myLibrary.splice(removeIndex, 1);
+    this.parentNode.remove();
+    console.log(myLibrary);
+  });
   card.appendChild(button);
 }
 
 // Be able to edit the info on the card
-// Add switch for has read to go between has and not
 // Be able to filter books by has read, alphabetical order, etc
