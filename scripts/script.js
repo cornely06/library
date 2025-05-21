@@ -34,14 +34,20 @@ addBookToLibrary("Harry Potter", "JK Rowling", "300", false);
 addBookToLibrary("Fight Club", "Chuck Palahniuk", "250", true);
 
 // Loop over library array and display books on page
-let container = document.querySelector(".library");
-myLibrary.forEach((book) => {
-  let card = document.createElement("div");
-  card.classList.add("book-card");
-  card.id = book.id;
-  makeCard(book, card);
-  container.appendChild(card);
-});
+function init() {
+  let container = document.querySelector(".library");
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
+  myLibrary.forEach((book) => {
+    let card = document.createElement("div");
+    card.classList.add("book-card");
+    card.id = book.id;
+    makeCard(book, card);
+    container.appendChild(card);
+  });
+}
+init();
 
 // Add books to card grid that displays data as author, title, etc
 function makeCard(book, card) {
@@ -66,6 +72,7 @@ function hasRead(book, card) {
   checkbox.id = book.id;
   checkbox.checked = book.hasRead;
   checkbox.classList.add("has-read");
+  checkbox.addEventListener("change", updateRead);
   let div2 = document.createElement("div");
   let label = document.createElement("label");
   label.htmlFor = book.id;
@@ -76,6 +83,14 @@ function hasRead(book, card) {
   card.appendChild(div1);
 }
 
+function updateRead() {
+  let readIndex = myLibrary.findIndex((book) => book.id == this.id);
+  if (myLibrary[readIndex].hasRead == true) {
+    myLibrary[readIndex].hasRead = false;
+  } else myLibrary[readIndex].hasRead = true;
+  console.log(myLibrary[readIndex]);
+}
+
 function closeButton(card) {
   let button = document.createElement("button");
   button.innerHTML = "&#215";
@@ -84,7 +99,7 @@ function closeButton(card) {
     let cardId = this.parentNode.id;
     let removeIndex = myLibrary.findIndex((book) => book.id == cardId);
     myLibrary.splice(removeIndex, 1);
-    this.parentNode.remove();
+    init();
     console.log(myLibrary);
   });
   card.appendChild(button);
