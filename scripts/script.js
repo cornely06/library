@@ -1,6 +1,8 @@
 // Create new books and a library array to store them
 const myLibrary = [];
 
+let container = document.querySelector(".library");
+
 function Book(title, author, pages, hasRead) {
   if (!new.target) {
     throw Error("You must use the 'new' operator to call the constructor");
@@ -10,12 +12,6 @@ function Book(title, author, pages, hasRead) {
   this.pages = pages;
   this.hasRead = hasRead;
   this.id = crypto.randomUUID();
-
-  this.giveInfo = function () {
-    return `${this.title} by ${this.author}, is ${this.pages} pages, and ${
-      this.hasRead ? "has" : "has not"
-    } been read.`;
-  };
 }
 
 function addBookToLibrary(title, author, pages, hasRead) {
@@ -35,17 +31,18 @@ addBookToLibrary("Fight Club", "Chuck Palahniuk", "250", true);
 
 // Loop over library array and display books on page
 function init() {
-  let container = document.querySelector(".library");
   while (container.firstChild) {
     container.removeChild(container.lastChild);
   }
-  myLibrary.forEach((book) => {
-    let card = document.createElement("div");
-    card.classList.add("book-card");
-    card.id = book.id;
-    makeCard(book, card);
-    container.appendChild(card);
-  });
+  myLibrary.forEach((book) => createCards(book));
+}
+
+function createCards(book) {
+  let card = document.createElement("div");
+  card.classList.add("book-card");
+  card.id = book.id;
+  makeCard(book, card);
+  container.appendChild(card);
 }
 init();
 
@@ -85,10 +82,7 @@ function hasRead(book, card) {
 
 function updateRead() {
   let readIndex = myLibrary.findIndex((book) => book.id == this.id);
-  if (myLibrary[readIndex].hasRead == true) {
-    myLibrary[readIndex].hasRead = false;
-  } else myLibrary[readIndex].hasRead = true;
-  console.log(myLibrary[readIndex]);
+  myLibrary[readIndex].hasRead = !myLibrary[readIndex].hasRead;
 }
 
 function closeButton(card) {
@@ -100,7 +94,6 @@ function closeButton(card) {
     let removeIndex = myLibrary.findIndex((book) => book.id == cardId);
     myLibrary.splice(removeIndex, 1);
     init();
-    console.log(myLibrary);
   });
   card.appendChild(button);
 }
