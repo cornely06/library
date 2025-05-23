@@ -98,5 +98,11 @@ function closeButton(card) {
   card.appendChild(button);
 }
 
+// Add button to make new books
+let newBook = document.querySelector(".newBook");
+newBook.addEventListener("click", function (e) {
+  console.log(e);
+});
+
 // Be able to edit the info on the card
 // Be able to filter books by has read, alphabetical order, etc
