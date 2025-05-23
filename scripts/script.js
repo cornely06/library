@@ -35,6 +35,7 @@ function init() {
     container.removeChild(container.lastChild);
   }
   myLibrary.forEach((book) => createCards(book));
+  document.querySelector("#form").reset();
 }
 
 function createCards(book) {
@@ -101,7 +102,14 @@ function closeButton(card) {
 // Add button to make new books
 let newBook = document.querySelector(".newBook");
 newBook.addEventListener("click", function (e) {
-  console.log(e);
+  let title = document.querySelector("#title").value;
+  let author = document.querySelector("#author").value;
+  let pages = document.querySelector("#pages").value;
+  let hasRead = document.querySelector("#hasRead").checked;
+  console.log(hasRead);
+  addBookToLibrary(title, author, pages, hasRead);
+  init();
+  e.preventDefault();
 });
 
 // Be able to edit the info on the card
