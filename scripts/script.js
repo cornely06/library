@@ -60,7 +60,7 @@ function makeCard(book, card) {
       this.focus();
     });
     p.addEventListener("keydown", function (e) {
-      if (e.keyCode === 13) {
+      if (e.key === "Enter") {
         this.blur();
       }
     });
