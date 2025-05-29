@@ -52,9 +52,12 @@ function makeCard(book, card) {
   const bookItems = ["title", "author", "pages"];
   bookItems.forEach((item) => {
     let atr = document.createElement("p");
+    atr.classList.add("label");
     let p = document.createElement("p");
+    p.classList.add("field-info");
     atr.innerHTML = item + ":";
     p.innerHTML = book[item];
+    // Be able to edit the info on the card
     p.addEventListener("click", function () {
       this.contentEditable = true;
       this.focus();
@@ -66,6 +69,7 @@ function makeCard(book, card) {
     });
     p.addEventListener("blur", function () {
       book[item] = p.innerHTML;
+      p.scrollTo(0, 0);
     });
     card.appendChild(atr);
     card.appendChild(p);
@@ -123,7 +127,5 @@ newBook.addEventListener("click", function (e) {
   init();
   e.preventDefault();
 });
-
-// Be able to edit the info on the card
 
 // Be able to filter books by has read, alphabetical order, etc
