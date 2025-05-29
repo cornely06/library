@@ -55,6 +55,18 @@ function makeCard(book, card) {
     let p = document.createElement("p");
     atr.innerHTML = item + ":";
     p.innerHTML = book[item];
+    p.addEventListener("click", function () {
+      this.contentEditable = true;
+      this.focus();
+    });
+    p.addEventListener("keydown", function (e) {
+      if (e.keyCode === 13) {
+        this.blur();
+      }
+    });
+    p.addEventListener("blur", function () {
+      book[item] = p.innerHTML;
+    });
     card.appendChild(atr);
     card.appendChild(p);
   });
@@ -113,4 +125,5 @@ newBook.addEventListener("click", function (e) {
 });
 
 // Be able to edit the info on the card
+
 // Be able to filter books by has read, alphabetical order, etc
