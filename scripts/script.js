@@ -55,7 +55,7 @@ function makeCard(book, card) {
     atr.classList.add("label");
     let p = document.createElement("p");
     p.classList.add("field-info");
-    atr.innerHTML = item + ":";
+    atr.innerHTML = item[0].toUpperCase() + item.slice(1) + ":";
     p.innerHTML = book[item];
     // Be able to edit the info on the card
     p.addEventListener("click", function () {
