@@ -116,7 +116,7 @@ function closeButton(card) {
 }
 
 // Add button to make new books
-let newBook = document.querySelector(".newBook");
+let newBook = document.querySelector(".new-book-btn");
 newBook.addEventListener("click", function (e) {
   let title = document.querySelector("#title").value;
   let author = document.querySelector("#author").value;
@@ -127,5 +127,3 @@ newBook.addEventListener("click", function (e) {
   init();
   e.preventDefault();
 });
-
-// Be able to filter books by has read, alphabetical order, etc
