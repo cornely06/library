@@ -23,11 +23,15 @@ addBookToLibrary(
   "Harry Potter and the Sorcorer's Stone",
   "JK Rowling",
   "300",
-  false
+  true
 );
 addBookToLibrary("Fight Club", "Chuck Palahniuk", "250", true);
-addBookToLibrary("Harry Potter", "JK Rowling", "300", false);
-addBookToLibrary("Fight Club", "Chuck Palahniuk", "250", true);
+addBookToLibrary(
+  "The Hitchhiker's Guide to the Galaxy",
+  "Douglas Adams",
+  "216",
+  false
+);
 
 // Loop over library array and display books on page
 function init() {
